@@ -743,3 +743,8 @@
         width: 100%;
     }
 }
+
+  .chartsStyle{
+      width: 900px;
+      height:600px;
+  }

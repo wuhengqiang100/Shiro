@@ -74,10 +74,12 @@
                 <li class="layui-nav-item" mobile>
                     <a th:href="@{/systemLogout}" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
                 </li>
-
+                <li class="layui-nav-item">
+                    <a href="javascript:" class="aTips" data-url="" ><i class="layui-icon layui-icon-speaker" style="font-size: 20px;"></i><span class="layui-badge">9</span></a>
+                </li>
                 <li class="layui-nav-item" pc>
-                    <a href="javascript:">
 
+                    <a href="javascript:">
                         <img th:src="${session.icon}" class="layui-circle"  width="35" height="35">
                         <cite>
                             <shiro:principal property="nickName"/>

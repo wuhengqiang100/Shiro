@@ -13,13 +13,129 @@
     <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" media="all" />
     <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
     <link rel="stylesheet" th:href="@{/static/admin/css/main.css}" media="all" />
+    <script th:src="@{/static/js/echarts.common.min.js}"></script>
+
 </head>
 <body class="childrenBody">
-<div class="panel_box row"  style="text-align: center;margin-top: 10em;">
-    <h1>欢迎<shiro:principal property = "nickName"/>使用后台管理！</h1>
-</div>
+<!--<div class="panel_box row"  style="text-align: center;margin-top: 10em;">-->
+    <!--<h1>欢迎<shiro:principal property = "nickName"/>使用后台管理！</h1>-->
+<!--</div>-->
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="charts" class="chartsStyle"></div>
+
 
 <script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
 <script type="text/javascript" th:src="@{/static/admin/js/main.js}"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('charts'));
+    //    app.title = '多 Y 轴示例';
+
+    var colors = ['#5793f3', '#d14a61', '#675bba'];
+    // 指定图表的配置项和数据
+    var option = {
+        color: colors,
+
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        grid: {
+            right: '20%'
+        },
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        legend: {
+            data:['蒸发量','降水量','平均温度']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {
+                    alignWithLabel: true
+                },
+                data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '蒸发量',
+                min: 0,
+                max: 250,
+                position: 'right',
+                axisLine: {
+                    lineStyle: {
+                        color: colors[0]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} ml'
+                }
+            },
+            {
+                type: 'value',
+                name: '降水量',
+                min: 0,
+                max: 250,
+                position: 'right',
+                offset: 80,
+                axisLine: {
+                    lineStyle: {
+                        color: colors[1]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} ml'
+                }
+            },
+            {
+                type: 'value',
+                name: '温度',
+                min: 0,
+                max: 25,
+                position: 'left',
+                axisLine: {
+                    lineStyle: {
+                        color: colors[2]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
+        series: [
+            {
+                name:'蒸发量',
+                type:'bar',
+                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+            },
+            {
+                name:'降水量',
+                type:'bar',
+                yAxisIndex: 1,
+                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+            },
+            {
+                name:'平均温度',
+                type:'line',
+                yAxisIndex: 2,
+                data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
 </body>
 </html>

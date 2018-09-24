@@ -16,7 +16,7 @@
 <div class="video_mask"></div>
 <div class="login">
     <h1>SAAS云检测系统</h1>
-    <form class="layui-form" th:action="@{/admin/login}">
+    <form class="layui-form" th:action="@{/admin/login}" method="post">
         <div class="layui-form-item">
             <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
         </div>
@@ -30,7 +30,7 @@
         <div class="layui-form-item">
             <input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">
             <span style="float: right">认证?
-                <button class="layui-btn" th:action="@{/register}">
+                <button class="layui-btn" th:src="@{/register}">
                     <i class="layui-icon">&#xe679;</i>
                  </button>
             </span>

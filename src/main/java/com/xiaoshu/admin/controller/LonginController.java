@@ -22,12 +22,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.apache.shiro.subject.Subject;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.imageio.ImageIO;
@@ -57,7 +54,7 @@ public class LonginController {
     MenuService menuService;
 
     public enum LoginTypeEnum {
-        PAGE,ADMIN;
+        PAGE,ADMIN
     }
 
     @GetMapping(value = "")
@@ -192,6 +189,62 @@ public class LonginController {
                 return ResponseEntity.failure(errorMsg);
             }
         }
+    }
+
+    @GetMapping("admin/login")
+    @SysLog("用户登录")
+    @ResponseBody
+    public ResponseEntity adminLoginGet(HttpServletRequest request) {
+        ResponseEntity responseEntity = new ResponseEntity();
+        responseEntity.setMessage("请登录");
+        responseEntity.setAny("url","tologin");
+        return responseEntity;
+      /*  String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String rememberMe = request.getParameter("rememberMe");
+        String code = request.getParameter("code");
+        if(StringUtils.isBlank(username) || StringUtils.isBlank(password)){
+            return ResponseEntity.failure("用户名或者密码不能为空");
+        }else if(StringUtils.isBlank(code)){
+            return ResponseEntity.failure("验证码不能为空");
+        }
+        HttpSession session = request.getSession();
+        if(session == null){
+            return ResponseEntity.failure("session超时");
+        }
+        String trueCode = (String)session.getAttribute(Constants.VALIDATE_CODE);
+        if(StringUtils.isBlank(trueCode)){
+            return ResponseEntity.failure("验证码超时");
+        }
+        if(StringUtils.isBlank(code) || !trueCode.toLowerCase().equals(code.toLowerCase())){
+            return ResponseEntity.failure("验证码错误");
+        }else {
+            *//*当前用户*//*
+            String errorMsg = null;
+            Subject user = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(username,password,Boolean.valueOf(rememberMe));
+            try {
+                user.login(token);
+                LOGGER.debug(username+"用户"+LocalDate.now().toString()+":======》登陆系统!");
+            }catch (IncorrectCredentialsException e) {
+                errorMsg = "用户名密码错误!";
+            }catch (UnknownAccountException e) {
+                errorMsg = "账户不存在!";
+            }catch (LockedAccountException e) {
+                errorMsg = "账户已被锁定!";
+            }catch (UserTypeAccountException e) {
+                errorMsg = "账户不是管理用户!";
+            }
+
+            if(StringUtils.isBlank(errorMsg)) {
+                ResponseEntity responseEntity = new ResponseEntity();
+                responseEntity.setSuccess(Boolean.TRUE);
+                responseEntity.setAny("url","index");
+                return responseEntity;
+            }else {
+                return ResponseEntity.failure(errorMsg);
+            }
+        }*/
     }
 
     @GetMapping("admin/main")

@@ -129,6 +129,8 @@ layui.config({
         })
     })
 
+
+
     //退出
     $(".signOut").click(function(){
         window.sessionStorage.removeItem("menu");
