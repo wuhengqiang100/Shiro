@@ -30,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * 系统用户管理Controller层
+ */
 @Controller
 @RequestMapping("admin/system/user")
 public class UserController {

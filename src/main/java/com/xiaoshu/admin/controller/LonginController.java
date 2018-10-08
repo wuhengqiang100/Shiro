@@ -195,11 +195,11 @@ public class LonginController {
     @SysLog("用户登录")
     @ResponseBody
     public ResponseEntity adminLoginGet(HttpServletRequest request) {
-        ResponseEntity responseEntity = new ResponseEntity();
+        /*ResponseEntity responseEntity = new ResponseEntity();
         responseEntity.setMessage("请登录");
         responseEntity.setAny("url","tologin");
-        return responseEntity;
-      /*  String username = request.getParameter("username");
+        return responseEntity;*/
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
         String code = request.getParameter("code");
@@ -219,7 +219,6 @@ public class LonginController {
         if(StringUtils.isBlank(code) || !trueCode.toLowerCase().equals(code.toLowerCase())){
             return ResponseEntity.failure("验证码错误");
         }else {
-            *//*当前用户*//*
             String errorMsg = null;
             Subject user = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username,password,Boolean.valueOf(rememberMe));
@@ -244,7 +243,7 @@ public class LonginController {
             }else {
                 return ResponseEntity.failure(errorMsg);
             }
-        }*/
+        }
     }
 
     @GetMapping("admin/main")

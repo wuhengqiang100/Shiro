@@ -66,6 +66,9 @@ public class User extends DataEntity<User> {
     @TableField(value = "is_admin")
     private Boolean adminUser;
 
+    @TableField(value = "remarks")
+    private String remarks;
+
     @TableField(strategy= FieldStrategy.IGNORED)
     private String icon;
 
@@ -163,5 +166,15 @@ public class User extends DataEntity<User> {
 
     public void setAdminUser(Boolean adminUser) {
         this.adminUser = adminUser;
+    }
+
+    @Override
+    public String getRemarks() {
+        return remarks;
+    }
+
+    @Override
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 }

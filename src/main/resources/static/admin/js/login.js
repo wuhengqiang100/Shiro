@@ -37,6 +37,12 @@ layui.use(['form', 'layer'], function () {
     form.on("onclick(#register)",function(data){
 
     });
+    $(".register").on("click", function () {
+        layer.confirm('确定要跳转注册么?', {icon: 3, title: '提示'}, function (index) {
+            window.location.reload();
+            layer.close(index);
+        });
+    });
     //等路页面回车按钮功能
    /* $(document).on('keydown', function (data) {
         var data= console.log(data.field);
