@@ -26,21 +26,9 @@ layui.use(['form', 'layer'], function () {
         return false;
     });
 
-    form.on("submit(register)",function(){
-        layer.alert("请求成功");
-    });
-
-    function register(){
-        layer.alert("请求成功");
-    }
-
-    form.on("onclick(#register)",function(data){
-
-    });
     $(".register").on("click", function () {
-        layer.confirm('确定要跳转注册么?', {icon: 3, title: '提示'}, function (index) {
-            window.location.reload();
-            layer.close(index);
+        layer.confirm('确定要跳转注册么?', {icon: 3, title: '提示'}, function () {
+            location.href = "/" + register;
         });
     });
     //等路页面回车按钮功能
