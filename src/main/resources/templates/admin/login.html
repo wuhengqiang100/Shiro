@@ -10,35 +10,71 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" media="all"/>
-    <link rel="stylesheet" th:href="@{/static/admin/css/login.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/static/admin/css/fastlogin.css}" media="all"/>
+    <!--<link rel="stylesheet" th:href="@{/static/admin/css/login.css}" media="all"/>-->
 </head>
 <body>
 <div class="video_mask"></div>
+<div class="login_title"><h1>SAAS云监测系统</h1></div>
 <div class="login">
-    <h1>SAAS云检测系统</h1>
+    <!--<h1>SAAS云检测系统</h1>-->
     <form class="layui-form" th:action="@{/admin/login}" method="post">
         <div class="layui-form-item">
-            <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text"
-                   autocomplete="off">
+            <label class="layui-form-label">用户名:</label>
+            <div class="layui-input-block">
+                <input class="layui-input" name="username" placeholder="请输入用户名" lay-verify="required" type="text"
+                       autocomplete="off">
+            </div>
         </div>
         <div class="layui-form-item">
-            <input class="layui-input" name="password" placeholder="密码" lay-verify="required" type="password"
-                   autocomplete="off">
-        </div>
-        <div class="layui-form-item form_code">
-            <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text"
-                   autocomplete="off">
-            <div class="code"><img th:src="@{/getCaptcha}" width="116" height="36" th:id="randImage"></div>
+            <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+            <div class="layui-input-block">
+                <input class="layui-input" name="password" placeholder="密码" lay-verify="required" type="password"
+                       autocomplete="off">
+            </div>
         </div>
         <div class="layui-form-item">
-            <input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">
-            <span style="float: right">认证?
-                <a th:href="@{/}" href="register.html" class="register">
-                 <button class="layui-btn" th:src="@{/register}">
-                    <i class="layui-icon">&#xe679;</i>
-                 </button>
-                 </a>
-            </span>
+            <div class="layui-inline">
+                <label class="layui-form-label">验证码:</label>
+                <div class="layui-input-block" style="width: 170px">
+                    <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text"
+                           autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <div class="code"><img th:src="@{/getCaptcha}" width="116" height="36" th:id="randImage"></div>
+            </div>
+        </div>
+        <!--  <div class="layui-form-item">
+              <label class="layui-form-label">用户名：</label>
+              <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text"
+                     autocomplete="off">
+          </div>
+          <div class="layui-form-item">
+              <label class="layui-form-label">密码：</label>
+              <input class="layui-input" name="password" placeholder="密码" lay-verify="required" type="password"
+                     autocomplete="off">
+          </div>
+          <div class="layui-form-item form_code">
+              <label class="layui-form-label">验证码：</label>
+              <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text"
+                     autocomplete="off">
+              <div class="code"><img th:src="@{/getCaptcha}" width="116" height="36" th:id="randImage"></div>
+          </div>-->
+        <div class="layui-form-item">
+            <div class="layui-inline">
+            <label class="layui-form-label">记住:</label>
+            <div class="layui-input-block" style="width: 170px">
+                <input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">
+            </div>
+            <!--    <span style="float: right">认证?
+                    <a th:href="@{/}" href="register.html" class="register">
+                     <button class="layui-btn" th:src="@{/register}">
+                        <i class="layui-icon">&#xe679;</i>
+                     </button>
+                     </a>
+                </span>-->
+            </div>
         </div>
         <button class="layui-btn login_btn" lay-submit lay-filter="login">登录</button>
     </form>

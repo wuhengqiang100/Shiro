@@ -140,8 +140,14 @@ public class PropertyController {
         String email = request.getParameter("email");
         String identity = request.getParameter("identity");
         String sex = request.getParameter("sex");
-        int num=0;
+        String fastLogin=request.getParameter("fastLogin");
+
         ResponseEntity res = new ResponseEntity();
+        if (StringUtils.equals("on",fastLogin)){
+            res.setSuccess(Boolean.TRUE);
+            res.setAny("url", "admin");
+            return res;
+        }
         if (StringUtils.equals("on", username)) {
             pro.put("username", 1);
         }

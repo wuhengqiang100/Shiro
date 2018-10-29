@@ -31,14 +31,9 @@ layui.use(['form', 'layer'], function () {
             location.href = "/" + login.html;
         });
     });
-    $(function(data){
-        var username=data.pro.username;
-        var password=data.pro.password;
-        var tell=data.pro.tell;
-        var email=data.pro.email;
-        var identity=data.pro.identity;
-        var sex=data.pro.sex;
-        alert(username);
+  //页面加载完后执行
+    $(document).ready(function () {
+
     });
     //等路页面回车按钮功能
     /* $(document).on('keydown', function (data) {

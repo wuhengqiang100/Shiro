@@ -52,7 +52,6 @@ body {
     font-size: 36px;
 }
 .login h1 {
-    padding-left: 10px;
     text-align: left;
     color: #fff;
     font-size: 18px;
@@ -60,6 +59,9 @@ body {
 .layui-form-label{
     font-size:16px;
     color: #ffffff;
+}
+.layui-input-block{
+    width: 300px;
 }
 .form_code {
     position: relative;
@@ -74,6 +76,7 @@ body {
 }
 
 .login span{
+    float: right;
     color: #00F7DE;
     margin-right: 10px;
 }

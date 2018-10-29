@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{/static/admin/css/property.css}" media="all"/>
 </head>
 <body>
-<!--<div class="video_mask"></div>-->
+<div class="video_mask"></div>
 <div class="login_title"><h1>SAAS云监测系统</h1></div>
 <div class="login">
 
@@ -71,30 +71,22 @@
             </div>
         </div>-->
 
-
-        <!--<div class="layui-form-item">
-            <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text"
-                   autocomplete="off">
-        </div>
         <div class="layui-form-item">
-            <input class="layui-input" name="password" placeholder="密码" lay-verify="required" type="password"
-                   autocomplete="off">
-        </div>
-        <div class="layui-form-item form_code">
-            <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text"
-                   autocomplete="off">
-            <div class="code"><img th:src="@{/getCaptcha}" width="116" height="36" th:id="randImage"></div>
-        </div>-->
-        <div class="layui-form-item">
-            <!--<input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">-->
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span>快捷登录?</span></label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="fastLogin" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+          <!--  &lt;!&ndash;<input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">&ndash;&gt;
             <span style="float: right">快捷登录?
-                <input type="checkbox" name="fastLogin" lay-skin="primary" title="快捷登录?">
-               <!-- <a th:href="@{/}" href="register.html" class="register">
+                <input type="checkbox" name="fastLogin" lay-skin="primary">
+               &lt;!&ndash; <a th:href="@{/}" href="register.html" class="register">
                  <button class="layui-btn" th:src="@{/register}">
                     <i class="layui-icon">&#xe679;</i>
                  </button>
-                 </a>-->
-            </span>
+                 </a>&ndash;&gt;
+            </span>-->
         </div>
         <button class="layui-btn login_btn" lay-submit lay-filter="login">确定</button>
     </form>
