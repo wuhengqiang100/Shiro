@@ -50,6 +50,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/toLogin","anon");
         filterChainDefinitionMap.put("/toProperty","anon");
         filterChainDefinitionMap.put("/admin/property","anon");
+        filterChainDefinitionMap.put("/admin/fastLogin","anon");
         filterChainDefinitionMap.put("/getCaptcha","anon");
         filterChainDefinitionMap.put("/anonCtrl/","anon");
         filterChainDefinitionMap.put("/sysRole/test","anon");

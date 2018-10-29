@@ -145,7 +145,7 @@ public class PropertyController {
         ResponseEntity res = new ResponseEntity();
         if (StringUtils.equals("on",fastLogin)){
             res.setSuccess(Boolean.TRUE);
-            res.setAny("url", "admin");
+            res.setAny("url", "admin/fastLogin");
             return res;
         }
         if (StringUtils.equals("on", username)) {

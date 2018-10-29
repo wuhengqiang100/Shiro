@@ -72,6 +72,11 @@ public class LonginController {
         return "redirect:toLogin";
     }
 
+    @GetMapping(value = {"admin/fastLogin"})
+    public String fastLogin() {
+        return "admin/fastLogin";
+    }
+
     @GetMapping(value = {"register","admin/register"})
     public String register() {
         return "redirect:register";

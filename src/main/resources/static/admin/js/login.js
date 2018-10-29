@@ -33,6 +33,20 @@ layui.use(['form', 'layer'], function () {
     });
   //页面加载完后执行
     $(document).ready(function () {
+        var pros=localStorage.getItem("pro");
+        for(var i=0;i++;i<pros.length){
+            if(pros[i].username==="on"){
+                $("#insertDom").before("<div class=\"layui-form-item\">\n" +
+                    "            <label class=\"layui-form-label\">用户名:</label>\n" +
+                    "            <div class=\"layui-input-block\">\n" +
+                    "                <input class=\"layui-input\" name=\"username\" placeholder=\"请输入用户名\" lay-verify=\"required\" type=\"text\"\n" +
+                    "                       autocomplete=\"off\">\n" +
+                    "            </div>\n" +
+                    "        </div>");
+            }
+        }
+
+
 
     });
     //等路页面回车按钮功能
