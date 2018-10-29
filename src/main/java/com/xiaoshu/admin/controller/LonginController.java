@@ -57,11 +57,11 @@ public class LonginController {
         PAGE,ADMIN
     }
 
-    @GetMapping(value = "")
+   /* @GetMapping(value = "")
     public String welcome() {
         return "redirect:admin";
     }
-
+*/
     @GetMapping(value = {"admin","admin/index"})
     public String adminIndex(RedirectAttributes attributes, ModelMap map) {
         Subject s = SecurityUtils.getSubject();

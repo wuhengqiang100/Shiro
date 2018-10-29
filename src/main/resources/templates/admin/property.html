@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>登录-SAAS云检测系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/static/admin/css/property.css}" media="all"/>
+</head>
+<body>
+<!--<div class="video_mask"></div>-->
+<div class="login_title"><h1>SAAS云监测系统</h1></div>
+<div class="login">
+
+    <h1>常用属性？</h1>
+    <form class="layui-form" th:action="@{/admin/property}" method="post">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">账号：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="username" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">密码：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="password" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">手机号：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="tell" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">邮箱：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="email" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">身份：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="identity" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">性别：</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="sex" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+        </div>
+<!--        <h1>其他属性：</h1>
+        <div class="layui-form-item">
+            &lt;!&ndash;<label class="layui-form-label">其他属性：</label>&ndash;&gt;
+            <div class="layui-input-block">
+                <input type="checkbox" name="like[write]" title="身高">
+                <input type="checkbox" name="like[read]" title="体重" checked="">
+                <input type="checkbox" name="like[game]" title="年龄">
+            </div>
+        </div>-->
+
+
+        <!--<div class="layui-form-item">
+            <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text"
+                   autocomplete="off">
+        </div>
+        <div class="layui-form-item">
+            <input class="layui-input" name="password" placeholder="密码" lay-verify="required" type="password"
+                   autocomplete="off">
+        </div>
+        <div class="layui-form-item form_code">
+            <input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text"
+                   autocomplete="off">
+            <div class="code"><img th:src="@{/getCaptcha}" width="116" height="36" th:id="randImage"></div>
+        </div>-->
+        <div class="layui-form-item">
+            <!--<input type="checkbox" name="rememberMe" lay-skin="primary" title="记住帐号?">-->
+            <span style="float: right">快捷登录?
+                <input type="checkbox" name="fastLogin" lay-skin="primary" title="快捷登录?">
+               <!-- <a th:href="@{/}" href="register.html" class="register">
+                 <button class="layui-btn" th:src="@{/register}">
+                    <i class="layui-icon">&#xe679;</i>
+                 </button>
+                 </a>-->
+            </span>
+        </div>
+        <button class="layui-btn login_btn" lay-submit lay-filter="login">确定</button>
+    </form>
+</div>
+<script type="text/javascript" th:src="@{/static/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/static/admin/js/property.js}"></script>
+</body>
+</html>
