@@ -9,7 +9,12 @@ layui.use(['form', 'layer'], function () {
         var loadIndex = layer.load(2, {shade: [0.3, '#333']});
 
         $.post(data.form.action, data.field, function (res) {
-            localStorage.setItem("pro",data.field);
+            localStorage.setItem("username",data.field.username);
+            localStorage.setItem("password",data.field.password);
+            localStorage.setItem("tel",data.field.tel);
+            localStorage.setItem("email",data.field.email);
+            localStorage.setItem("identity",data.field.identity);
+            localStorage.setItem("sex",data.field.sex);
             //关闭加载动画
             layer.close(loadIndex);
             if (res.success) {

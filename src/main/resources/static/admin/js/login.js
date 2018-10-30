@@ -26,26 +26,74 @@ layui.use(['form', 'layer'], function () {
         return false;
     });
 
-    $(".register").on("click", function () {
+/*    $(".register").on("click", function () {
         layer.confirm('确定要跳转快捷登录么?', {icon: 3, title: '提示'}, function () {
             location.href = "/" + login.html;
         });
+    });*/
+
+    $(document).on('keydown', function() {
+        if(event.keyCode == 13) {
+            $(".login_btn").click();
+        }
     });
   //页面加载完后执行
     $(document).ready(function () {
-        var pros=localStorage.getItem("pro");
-        for(var i=0;i++;i<pros.length){
-            if(pros[i].username==="on"){
-                $("#insertDom").before("<div class=\"layui-form-item\">\n" +
-                    "            <label class=\"layui-form-label\">用户名:</label>\n" +
-                    "            <div class=\"layui-input-block\">\n" +
-                    "                <input class=\"layui-input\" name=\"username\" placeholder=\"请输入用户名\" lay-verify=\"required\" type=\"text\"\n" +
-                    "                       autocomplete=\"off\">\n" +
-                    "            </div>\n" +
-                    "        </div>");
-            }
-        }
 
+        if( localStorage.getItem("username")==="on"){
+            $("#insertDom").before("<div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">用户名:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"username\" placeholder=\"请输入用户名\" lay-verify=\"required\" type=\"text\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
+        if( localStorage.getItem("password")==="on"){
+            $("#insertDom").before("  <div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"password\" placeholder=\"密码\" lay-verify=\"required\" type=\"password\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
+        if( localStorage.getItem("tel")==="on"){
+            $("#insertDom").before(" <div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">电&nbsp;&nbsp;&nbsp;&nbsp;话:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"tel\" placeholder=\"电话号码\" lay-verify=\"required\" type=\"number\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
+        if( localStorage.getItem("email")==="on"){
+            $("#insertDom").before(" <div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"email\" placeholder=\"邮箱\" lay-verify=\"required\" type=\"text\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
+        if( localStorage.getItem("identity")==="on"){
+            $("#insertDom").before(" <div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">身&nbsp;&nbsp;&nbsp;&nbsp;份:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"identity\" placeholder=\"身份\" lay-verify=\"required\" type=\"text\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
+        if( localStorage.getItem("sex")==="on"){
+            $("#insertDom").before("<div class=\"layui-form-item\">\n" +
+                "            <label class=\"layui-form-label\">性&nbsp;&nbsp;&nbsp;&nbsp;别:</label>\n" +
+                "            <div class=\"layui-input-block\">\n" +
+                "                <input class=\"layui-input\" name=\"sex\" placeholder=\"性别\" lay-verify=\"required\" type=\"text\"\n" +
+                "                       autocomplete=\"off\">\n" +
+                "            </div>\n" +
+                "        </div>");
+        }
 
 
     });

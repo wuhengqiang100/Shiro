@@ -136,7 +136,7 @@ public class PropertyController {
         HashMap pro=new HashMap();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String tell = request.getParameter("tell");
+        String tell = request.getParameter("tel");
         String email = request.getParameter("email");
         String identity = request.getParameter("identity");
         String sex = request.getParameter("sex");
